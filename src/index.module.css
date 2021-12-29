@@ -21,3 +21,34 @@ header {
 img {
   width: 40px;
 }
+.section {
+  background-color: rebeccapurple;
+  min-height: 10rem;
+  width: 80rem;
+  padding: 1rem;
+  margin: 0 auto;
+}
+.form {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 30rem;
+}
+textarea {
+  width: 15rem;
+  max-width: 30rem;
+  height: 5rem;
+  max-height: 10rem;
+  padding: 1rem;
+  border-radius: 20px;
+}
+textarea::placeholder {
+  color: #f48c06;
+  font-weight: 100;
+}
+input {
+  border-radius: 20px;
+  padding: 0.5rem;
+  border: none;
+}

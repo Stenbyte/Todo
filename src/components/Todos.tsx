@@ -31,11 +31,10 @@ const Todos: React.FC = () => {
         </div>
         <h1>Todo App</h1>
       </header>
-      <section>
-        <form onSubmit={submitHandler}>
+      <section className={styles.section}>
+        <form onSubmit={submitHandler} className={styles.form}>
           <label htmlFor="note">Note:</label>
-          <input
-            type="text"
+          <textarea
             name="note"
             id="note"
             placeholder="Add noote..."
@@ -50,7 +49,10 @@ const Todos: React.FC = () => {
             onChange={(e) => setDeadline(e.target.value)}
             value={deadline}
           />
-          <select onChange={(e) => setNoteStatus(e.target.value)}>
+          <select
+            onChange={(e) => setNoteStatus(e.target.value)}
+            className={styles.select}
+          >
             <option value="">Please choose a status</option>
             <option value="Todo">Todo</option>
             <option value="Doing">Doing</option>
@@ -64,10 +66,10 @@ const Todos: React.FC = () => {
             accept="image/png, image/jpeg, image/jpg"
             onChange={(e) => picHandler(e)}
           />
+          <img src={pic} alt="" className={styles.pic} />
           <button type="submit">Add</button>
         </form>
       </section>
-      <img src={pic} alt="" />
     </div>
   );
 };
