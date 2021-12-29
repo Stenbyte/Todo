@@ -6,4 +6,18 @@
 
 body {
   font-family: "Barlow", sans-serif;
+  background-color: #f48c06;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: whitesmoke;
+}
+.top {
+  padding: 1rem;
+}
+img {
+  width: 40px;
 }
