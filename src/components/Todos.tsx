@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../index.module.css";
 const Todos: React.FC = () => {
+  const [note, setNote] = useState<string>("");
+  const [deadline, setDeadline] = useState<string>("");
+  const [noteStatus, setNoteStatus] = useState<string>("");
+  const [pic, setPic] = useState<any>([]);
+
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(note);
+    console.log(deadline);
+    console.log(noteStatus);
+    // console.log(pic);
+  };
+  const picHandler = (e: any) => {
+    // e.preventDefault();
+    // console.log(URL.createObjectURL(e.target.files[0]));
+
+    let array = [];
+    const data = URL.createObjectURL(e.target.files[0]);
+    array.push(data);
+    setPic(array);
+  };
+
   return (
     <div>
       <header>
@@ -10,12 +32,25 @@ const Todos: React.FC = () => {
         <h1>Todo App</h1>
       </header>
       <section>
-        <form>
+        <form onSubmit={submitHandler}>
           <label htmlFor="note">Note:</label>
-          <input type="text" name="note" id="note" placeholder="Add noote..." />
+          <input
+            type="text"
+            name="note"
+            id="note"
+            placeholder="Add noote..."
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+          />
           <label htmlFor="date">Deadline</label>
-          <input type="datetime-local" name="date" id="date" />
-          <select>
+          <input
+            type="datetime-local"
+            name="date"
+            id="date"
+            onChange={(e) => setDeadline(e.target.value)}
+            value={deadline}
+          />
+          <select onChange={(e) => setNoteStatus(e.target.value)}>
             <option value="">Please choose a status</option>
             <option value="Todo">Todo</option>
             <option value="Doing">Doing</option>
@@ -27,10 +62,12 @@ const Todos: React.FC = () => {
             name="picture"
             id="picture"
             accept="image/png, image/jpeg, image/jpg"
+            onChange={(e) => picHandler(e)}
           />
           <button type="submit">Add</button>
         </form>
       </section>
+      <img src={pic} alt="" />
     </div>
   );
 };
