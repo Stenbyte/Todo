@@ -103,12 +103,12 @@ textarea::placeholder {
 .file {
   padding: 0;
 }
-.pic {
+/* .pic {
   width: 7rem;
   height: 7rem;
-  /* padding-right: 1rem; */
+ 
   margin-right: 1rem;
-}
+} */
 input {
   border-radius: 2px;
   padding: 0.8rem;

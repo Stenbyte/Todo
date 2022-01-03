@@ -1,23 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "../index.module.css";
 import Todo from "./Todo";
+import DataContext from "../context/data-context";
 const Todos: React.FC = () => {
   const [note, setNote] = useState<string>("");
   const [deadline, setDeadline] = useState<string>("");
   const [noteStatus, setNoteStatus] = useState<string>("");
   const [pic, setPic] = useState<any>([]);
 
+  const ctx = useContext(DataContext);
+
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(note);
     console.log(deadline);
     console.log(noteStatus);
-    // console.log(pic);
+    console.log(pic);
   };
   const picHandler = (e: any) => {
     // e.preventDefault();
-    // console.log(URL.createObjectURL(e.target.files[0]));
-
     let array = [];
     const data = URL.createObjectURL(e.target.files[0]);
     array.push(data);
@@ -80,15 +81,17 @@ const Todos: React.FC = () => {
                 className={styles.file}
               />
             </div>
+
             <img src={pic} alt="" className={styles.pic} />
+
             <button type="submit">Add</button>
           </div>
         </form>
       </section>
       <section className={styles.sec}>
-        <Todo />
-        <Todo />
-        <Todo />
+        {ctx.data.map((card, cardI) => (
+          <Todo key={cardI} data={card} cardI={cardI} />
+        ))}
       </section>
     </div>
   );
