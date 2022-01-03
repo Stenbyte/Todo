@@ -9,6 +9,7 @@ const DataContext: React.Context<{
       img: string[];
     }[];
   }[];
+  submitHandler: any;
 }> = React.createContext({
   data: [
     {
@@ -27,6 +28,7 @@ const DataContext: React.Context<{
     },
     { title: "Done", items: [] },
   ],
+  submitHandler: () => {},
 });
 
 export default DataContext;

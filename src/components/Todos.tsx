@@ -2,23 +2,27 @@ import React, { useState, useContext } from "react";
 import styles from "../index.module.css";
 import Todo from "./Todo";
 import DataContext from "../context/data-context";
-const Todos: React.FC = () => {
-  const [note, setNote] = useState<string>("");
-  const [deadline, setDeadline] = useState<string>("");
-  const [noteStatus, setNoteStatus] = useState<string>("");
-  const [pic, setPic] = useState<any>([]);
-
+const Todos: React.FC<{
+  note: string;
+  setNote: Function;
+  deadline: string;
+  setDeadline: Function;
+  pic: string;
+  setPic: Function;
+  noteStatus: string;
+  setNoteStatus: Function;
+}> = ({
+  note,
+  deadline,
+  pic,
+  setPic,
+  setNote,
+  setDeadline,
+  noteStatus,
+  setNoteStatus,
+}) => {
   const ctx = useContext(DataContext);
-
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(note);
-    console.log(deadline);
-    console.log(noteStatus);
-    console.log(pic);
-  };
   const picHandler = (e: any) => {
-    // e.preventDefault();
     let array = [];
     const data = URL.createObjectURL(e.target.files[0]);
     array.push(data);
@@ -34,7 +38,7 @@ const Todos: React.FC = () => {
         <h1>Todo App</h1>
       </header>
       <section className={styles.section}>
-        <form onSubmit={submitHandler} className={styles.form}>
+        <form onSubmit={ctx.submitHandler} className={styles.form}>
           <div className={styles.form1}>
             <div className={styles.note}>
               <label htmlFor="note">Add note:</label>
@@ -43,6 +47,7 @@ const Todos: React.FC = () => {
                 id="note"
                 placeholder="Add noote..."
                 value={note}
+                required
                 onChange={(e) => setNote(e.target.value)}
               />
             </div>
@@ -63,6 +68,7 @@ const Todos: React.FC = () => {
               <select
                 onChange={(e) => setNoteStatus(e.target.value)}
                 className={styles.select}
+                required
               >
                 <option value="">Please choose a status</option>
                 <option value="Todo">Todo</option>
