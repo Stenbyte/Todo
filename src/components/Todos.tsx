@@ -35,44 +35,51 @@ const Todos: React.FC = () => {
       <section className={styles.section}>
         <form onSubmit={submitHandler} className={styles.form}>
           <div className={styles.form1}>
-            <label htmlFor="note">Add note:</label>
-            <textarea
-              name="note"
-              id="note"
-              placeholder="Add noote..."
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-            />
-            <label htmlFor="date">Deadline</label>
-            <input
-              type="datetime-local"
-              name="date"
-              id="date"
-              onChange={(e) => setDeadline(e.target.value)}
-              value={deadline}
-            />
+            <div className={styles.note}>
+              <label htmlFor="note">Add note:</label>
+              <textarea
+                name="note"
+                id="note"
+                placeholder="Add noote..."
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+              />
+            </div>
+            <div className={styles.deadline}>
+              <label htmlFor="date">Deadline</label>
+              <input
+                type="datetime-local"
+                name="date"
+                id="date"
+                onChange={(e) => setDeadline(e.target.value)}
+                value={deadline}
+              />
+            </div>
           </div>
           <div className={styles.form2}>
-            <label htmlFor="status">Status</label>
-            <select
-              onChange={(e) => setNoteStatus(e.target.value)}
-              className={styles.select}
-            >
-              <option value="">Please choose a status</option>
-              <option value="Todo">Todo</option>
-              <option value="Doing">Doing</option>
-              <option value="Done">Done</option>
-            </select>
-
-            <label htmlFor="picture">Add image (optional)</label>
-            <input
-              type="file"
-              name="picture"
-              id="picture"
-              accept="image/png, image/jpeg, image/jpg"
-              onChange={(e) => picHandler(e)}
-              className={styles.file}
-            />
+            <div className={styles.status}>
+              <label htmlFor="status">Status</label>
+              <select
+                onChange={(e) => setNoteStatus(e.target.value)}
+                className={styles.select}
+              >
+                <option value="">Please choose a status</option>
+                <option value="Todo">Todo</option>
+                <option value="Doing">Doing</option>
+                <option value="Done">Done</option>
+              </select>
+            </div>
+            <div className={styles.Image}>
+              <label htmlFor="picture">Add image (optional)</label>
+              <input
+                type="file"
+                name="picture"
+                id="picture"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={(e) => picHandler(e)}
+                className={styles.file}
+              />
+            </div>
             <img src={pic} alt="" className={styles.pic} />
             <button type="submit">Add</button>
           </div>

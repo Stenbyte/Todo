@@ -24,7 +24,7 @@ img {
 .section {
   background-color: #053c5e;
   min-height: 10rem;
-  width: 80rem;
+  width: 60%;
   padding: 1rem;
   margin: 0 auto;
   border-radius: 3px;
@@ -42,8 +42,23 @@ img {
 .form1 {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
+  gap: 1rem;
   width: 80%;
+}
+.note {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  min-height: 7rem;
+}
+.deadline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  min-height: 5rem;
 }
 .form2 {
   display: flex;
@@ -51,6 +66,19 @@ img {
   /* height: 10rem; */
   padding-top: 1rem;
   width: 80%;
+  justify-content: space-between;
+}
+.status {
+  display: flex;
+  flex-direction: column;
+  min-height: 5rem;
+  justify-content: space-between;
+}
+.Image {
+  display: flex;
+  flex-direction: column;
+  min-height: 5rem;
+  justify-content: space-between;
 }
 label {
   padding: 0 1rem 0 1rem;
