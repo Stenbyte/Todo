@@ -33,41 +33,48 @@ const Todos: React.FC = () => {
       </header>
       <section className={styles.section}>
         <form onSubmit={submitHandler} className={styles.form}>
-          <label htmlFor="note">Note:</label>
-          <textarea
-            name="note"
-            id="note"
-            placeholder="Add noote..."
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-          />
-          <label htmlFor="date">Deadline</label>
-          <input
-            type="datetime-local"
-            name="date"
-            id="date"
-            onChange={(e) => setDeadline(e.target.value)}
-            value={deadline}
-          />
-          <select
-            onChange={(e) => setNoteStatus(e.target.value)}
-            className={styles.select}
-          >
-            <option value="">Please choose a status</option>
-            <option value="Todo">Todo</option>
-            <option value="Doing">Doing</option>
-            <option value="Done">Done</option>
-          </select>
-          <label htmlFor="picture">Add image (optional)</label>
-          <input
-            type="file"
-            name="picture"
-            id="picture"
-            accept="image/png, image/jpeg, image/jpg"
-            onChange={(e) => picHandler(e)}
-          />
-          <img src={pic} alt="" className={styles.pic} />
-          <button type="submit">Add</button>
+          <div className={styles.form1}>
+            <label htmlFor="note">Add note:</label>
+            <textarea
+              name="note"
+              id="note"
+              placeholder="Add noote..."
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+            />
+            <label htmlFor="date">Deadline</label>
+            <input
+              type="datetime-local"
+              name="date"
+              id="date"
+              onChange={(e) => setDeadline(e.target.value)}
+              value={deadline}
+            />
+          </div>
+          <div className={styles.form2}>
+            <label htmlFor="status">Status</label>
+            <select
+              onChange={(e) => setNoteStatus(e.target.value)}
+              className={styles.select}
+            >
+              <option value="">Please choose a status</option>
+              <option value="Todo">Todo</option>
+              <option value="Doing">Doing</option>
+              <option value="Done">Done</option>
+            </select>
+
+            <label htmlFor="picture">Add image (optional)</label>
+            <input
+              type="file"
+              name="picture"
+              id="picture"
+              accept="image/png, image/jpeg, image/jpg"
+              onChange={(e) => picHandler(e)}
+              className={styles.file}
+            />
+            <img src={pic} alt="" className={styles.pic} />
+            <button type="submit">Add</button>
+          </div>
         </form>
       </section>
     </div>

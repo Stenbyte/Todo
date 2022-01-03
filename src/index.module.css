@@ -13,7 +13,7 @@ header {
   align-items: center;
   justify-content: center;
   width: 100%;
-  color: whitesmoke;
+  color: #053c5e;
 }
 .top {
   padding: 1rem;
@@ -22,7 +22,7 @@ img {
   width: 40px;
 }
 .section {
-  background-color: rebeccapurple;
+  background-color: #053c5e;
   min-height: 10rem;
   width: 80rem;
   padding: 1rem;
@@ -30,15 +30,36 @@ img {
 }
 .form {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  height: 30rem;
+  min-height: 15rem;
+  color: #f48c06;
+  /* background-color: aqua; */
+  font-weight: 500;
+}
+.form1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 80%;
+}
+.form2 {
+  display: flex;
+  align-items: flex-start;
+  /* height: 10rem; */
+  padding-top: 1rem;
+  width: 80%;
+}
+label {
+  padding: 0 1rem 0 1rem;
+  /* width: 15%; */
 }
 textarea {
+  min-width: 10rem;
   width: 15rem;
   max-width: 30rem;
-  height: 5rem;
+  min-height: 5rem;
   max-height: 10rem;
   padding: 1rem;
   border-radius: 20px;
@@ -47,8 +68,27 @@ textarea::placeholder {
   color: #f48c06;
   font-weight: 100;
 }
+.select {
+  padding: 0.8rem;
+}
+.file {
+  padding: 0;
+}
+.pic {
+  width: 7rem;
+  height: 7rem;
+  /* padding-right: 1rem; */
+  margin-right: 1rem;
+}
 input {
-  border-radius: 20px;
-  padding: 0.5rem;
+  border-radius: 2px;
+  padding: 0.8rem;
+  border: none;
+}
+button {
+  background-color: #f48c06;
+  color: #053c5e;
+  padding: 1rem;
+  border-radius: 5px;
   border: none;
 }
