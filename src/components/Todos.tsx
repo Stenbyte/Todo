@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../index.module.css";
+import Todo from "./Todo";
 const Todos: React.FC = () => {
   const [note, setNote] = useState<string>("");
   const [deadline, setDeadline] = useState<string>("");
@@ -76,6 +77,11 @@ const Todos: React.FC = () => {
             <button type="submit">Add</button>
           </div>
         </form>
+      </section>
+      <section className={styles.sec}>
+        <Todo />
+        <Todo />
+        <Todo />
       </section>
     </div>
   );
