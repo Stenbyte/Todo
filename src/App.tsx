@@ -37,6 +37,13 @@ function App() {
         setNoteStatus("");
     }
   }, [noteStatus]);
+  // Getting data from storage
+  useEffect(() => {
+    const storage = sessionStorage.getItem("items");
+    if (storage) {
+      setCard(JSON.parse(storage));
+    }
+  }, []);
 
   // submit Handler
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
@@ -55,6 +62,8 @@ function App() {
       let newCard = JSON.parse(JSON.stringify(prev));
       // Pushing to particular section
       newCard[status].items.push(newItem);
+      // Setting dummy storage
+      sessionStorage.setItem("items", JSON.stringify(newCard));
       return newCard;
     });
     // Reseting states
@@ -106,12 +115,21 @@ function App() {
           0,
           newCard[current?.cardI].items.splice(current?.itemI, 1)[0]
         );
-
+        sessionStorage.setItem("items", JSON.stringify(newCard));
         // Updating from current to target
         dragItem.current = params;
         return newCard;
       });
     }
+  };
+  const removeHandler = (e: any, params: Group) => {
+    setCard((prev) => {
+      const newCard = JSON.parse(JSON.stringify(prev));
+      newCard[params.cardI].items.splice(params.itemI, 1);
+      // updating storage
+      sessionStorage.setItem("items", JSON.stringify(newCard));
+      return newCard;
+    });
   };
   return (
     <div className="App">
@@ -123,6 +141,7 @@ function App() {
           dragStart: dragStart,
           Styling: Styling,
           dragEnter: dragEnter,
+          removeHandler: removeHandler,
         }}
       >
         <Todos

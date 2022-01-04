@@ -14,6 +14,7 @@ const DataContext: React.Context<{
   dragStart: any;
   Styling: any;
   dragEnter: any;
+  removeHandler: any;
 }> = React.createContext({
   data: [
     {
@@ -37,6 +38,7 @@ const DataContext: React.Context<{
   dragStart: () => {},
   Styling: () => {},
   dragEnter: () => {},
+  removeHandler: () => {},
 });
 
 export default DataContext;

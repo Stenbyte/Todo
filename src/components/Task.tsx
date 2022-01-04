@@ -38,7 +38,12 @@ const Task: React.FC<{
           </span>
         )}
       </div>
-      <span style={{ cursor: "pointer", fontSize: "1.5rem" }}>&times;</span>
+      <span
+        style={{ cursor: "pointer", fontSize: "1.5rem" }}
+        onClick={(e) => ctx.removeHandler(e, { cardI, itemI })}
+      >
+        &times;
+      </span>
     </div>
   );
 };
