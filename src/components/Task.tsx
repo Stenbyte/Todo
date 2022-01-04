@@ -11,6 +11,7 @@ const Task: React.FC<{
   cardI: number;
 }> = ({ items, cardI, itemI }) => {
   const ctx = useContext(DataContext);
+
   return (
     <div
       draggable
@@ -26,8 +27,10 @@ const Task: React.FC<{
     >
       <div className={styles.taskCard}>
         <p>{items.list}</p>
-        {items.img && <img src={items.img[0]} alt="" />}
-        {items.deadline && (
+        {items?.img[0] && (
+          <img src={items?.img[0]} alt="" className={styles.taskImg} />
+        )}
+        {items?.deadline && (
           <span>
             Deadline:{" "}
             {new Date(items.deadline).toLocaleDateString(undefined, {

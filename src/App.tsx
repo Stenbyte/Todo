@@ -123,6 +123,8 @@ function App() {
     }
   };
   const removeHandler = (e: any, params: Group) => {
+    if (!e.target) return;
+
     setCard((prev) => {
       const newCard = JSON.parse(JSON.stringify(prev));
       newCard[params.cardI].items.splice(params.itemI, 1);

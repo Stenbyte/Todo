@@ -45,7 +45,7 @@ const Todos: React.FC<{
               <textarea
                 name="note"
                 id="note"
-                placeholder="Add noote..."
+                placeholder="Add note..."
                 value={note}
                 required
                 onChange={(e) => setNote(e.target.value)}

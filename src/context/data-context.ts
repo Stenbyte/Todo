@@ -21,14 +21,18 @@ const DataContext: React.Context<{
       title: "Todo",
       items: [
         { list: "hello there", deadline: "", img: [""] },
-        { list: "general kenobi", deadline: "", img: [""] },
+        { list: "Add your task", deadline: "", img: [""] },
       ],
     },
     {
       title: "Doing",
       items: [
-        { list: "hello there111", deadline: "", img: [""] },
-        { list: "general kenobi111", deadline: "", img: [""] },
+        {
+          list: "Note and Status fields are mandatory to submit your note",
+          deadline: "",
+          img: [""],
+        },
+        { list: "You can upload image", deadline: "", img: [""] },
       ],
     },
     { title: "Done", items: [] },

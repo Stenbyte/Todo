@@ -85,11 +85,9 @@ label {
   /* width: 15%; */
 }
 textarea {
-  min-width: 10rem;
-  width: 15rem;
-  max-width: 30rem;
-  min-height: 5rem;
-  max-height: 10rem;
+  width: 30rem;
+
+  height: 10rem;
   padding: 1rem;
   border-radius: 20px;
 }
@@ -155,6 +153,7 @@ button {
   align-items: flex-start;
   justify-content: space-between;
   box-shadow: 5px 5px 7px #f48c06;
+  overflow: auto;
 }
 .taskCard {
   display: flex;
@@ -163,4 +162,10 @@ button {
 }
 .cur {
   background-color: #144552;
+}
+.taskImg {
+  width: 10rem;
+  height: 10rem;
+  padding: 0.4rem;
+  object-fit: cover;
 }
