@@ -13,8 +13,12 @@ const Todo: React.FC<{
   };
   cardI: number;
 }> = ({ data, cardI }) => {
+  // Preventig from returning to old place
+  const dragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
   return (
-    <div className={styles.Box}>
+    <div className={styles.Box} onDragOver={(e) => dragOver(e)}>
       <h3>{data.title} Section</h3>
       {data.items?.map((items, itemI) => (
         <Task items={items} key={itemI} itemI={itemI} cardI={cardI} />

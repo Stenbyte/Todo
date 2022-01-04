@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../index.module.css";
+import DataContext from "../context/data-context";
 const Task: React.FC<{
   items: {
     list: string;
@@ -8,11 +9,17 @@ const Task: React.FC<{
   };
   itemI: number;
   cardI: number;
-}> = ({ items }) => {
+}> = ({ items, cardI, itemI }) => {
+  const ctx = useContext(DataContext);
   return (
-    <div draggable className={styles.card}>
+    <div
+      draggable
+      onDragStart={(e) => ctx.dragStart(e, { cardI, itemI })}
+      className={ctx.styling ? ctx.Styling({ cardI, itemI }) : styles.card}
+    >
       <div className={styles.taskCard}>
         <p>{items.list}</p>
+        {items.img && <img src={items.img[0]} alt="" />}
         {items.deadline && (
           <span>
             Deadline:{" "}
@@ -23,7 +30,6 @@ const Task: React.FC<{
             })}{" "}
           </span>
         )}
-        {items.img && <img src={items.img[0]} alt="" />}
       </div>
       <span style={{ cursor: "pointer", fontSize: "1.5rem" }}>&times;</span>
     </div>
