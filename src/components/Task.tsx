@@ -23,6 +23,7 @@ const Task: React.FC<{
             })}{" "}
           </span>
         )}
+        {items.img && <img src={items.img[0]} alt="" />}
       </div>
       <span style={{ cursor: "pointer", fontSize: "1.5rem" }}>&times;</span>
     </div>
