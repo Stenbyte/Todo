@@ -34,7 +34,7 @@ function App() {
         setStatus(2);
         break;
       default:
-        console.log(noteStatus);
+        setNoteStatus("");
     }
   }, [noteStatus]);
 
@@ -93,7 +93,26 @@ function App() {
     dragNode.current.removeEventListener("dragend", dragEnd);
     dragNode.current = null;
   };
+  const dragEnter = (e: any, params: Group) => {
+    const current = dragItem.current;
+    if (e.target !== dragNode.current) {
+      // Update state
 
+      setCard((prev) => {
+        const newCard = JSON.parse(JSON.stringify(prev));
+
+        newCard[params.cardI].items.splice(
+          params.itemI,
+          0,
+          newCard[current?.cardI].items.splice(current?.itemI, 1)[0]
+        );
+
+        // Updating from current to target
+        dragItem.current = params;
+        return newCard;
+      });
+    }
+  };
   return (
     <div className="App">
       <DataContext.Provider
@@ -103,6 +122,7 @@ function App() {
           submitHandler: submitHandler,
           dragStart: dragStart,
           Styling: Styling,
+          dragEnter: dragEnter,
         }}
       >
         <Todos

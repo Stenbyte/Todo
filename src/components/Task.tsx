@@ -15,6 +15,13 @@ const Task: React.FC<{
     <div
       draggable
       onDragStart={(e) => ctx.dragStart(e, { cardI, itemI })}
+      onDragEnter={
+        ctx.styling
+          ? (e) => {
+              ctx.dragEnter(e, { cardI, itemI });
+            }
+          : undefined
+      }
       className={ctx.styling ? ctx.Styling({ cardI, itemI }) : styles.card}
     >
       <div className={styles.taskCard}>

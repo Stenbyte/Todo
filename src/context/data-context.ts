@@ -13,6 +13,7 @@ const DataContext: React.Context<{
   submitHandler: any;
   dragStart: any;
   Styling: any;
+  dragEnter: any;
 }> = React.createContext({
   data: [
     {
@@ -35,6 +36,7 @@ const DataContext: React.Context<{
   submitHandler: () => {},
   dragStart: () => {},
   Styling: () => {},
+  dragEnter: () => {},
 });
 
 export default DataContext;
