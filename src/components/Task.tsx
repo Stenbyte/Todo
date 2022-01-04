@@ -13,6 +13,16 @@ const Task: React.FC<{
     <div draggable className={styles.card}>
       <div className={styles.taskCard}>
         <p>{items.list}</p>
+        {items.deadline && (
+          <span>
+            Deadline:{" "}
+            {new Date(items.deadline).toLocaleDateString(undefined, {
+              hour12: false,
+              hour: "2-digit",
+              minute: "2-digit",
+            })}{" "}
+          </span>
+        )}
       </div>
       <span style={{ cursor: "pointer", fontSize: "1.5rem" }}>&times;</span>
     </div>

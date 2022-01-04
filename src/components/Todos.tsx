@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import styles from "../index.module.css";
 import Todo from "./Todo";
 import DataContext from "../context/data-context";
@@ -88,7 +88,11 @@ const Todos: React.FC<{
               />
             </div>
 
-            <img src={pic} alt="" className={styles.pic} />
+            {pic === undefined ? (
+              ""
+            ) : (
+              <img src={pic} alt="" className={styles.pic} />
+            )}
 
             <button type="submit">Add</button>
           </div>

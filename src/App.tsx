@@ -8,7 +8,7 @@ function App() {
   const [note, setNote] = useState<string>("");
   const [deadline, setDeadline] = useState<string>("");
   const [noteStatus, setNoteStatus] = useState<string>("");
-  const [pic, setPic] = useState<any>([]);
+  const [pic, setPic] = useState<any>(undefined);
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
