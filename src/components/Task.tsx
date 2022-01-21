@@ -26,14 +26,14 @@ const Task: React.FC<{
       className={ctx.styling ? ctx.Styling({ cardI, itemI }) : styles.card}
     >
       <div className={styles.taskCard}>
-        <p>{items.list}</p>
-        {items?.img[0] && (
+        <p>{items?.list}</p>
+        {items.img && items?.img[0] && (
           <img src={items?.img[0]} alt="" className={styles.taskImg} />
         )}
         {items?.deadline && (
           <span>
             Deadline:{" "}
-            {new Date(items.deadline).toLocaleDateString(undefined, {
+            {new Date(items?.deadline).toLocaleDateString(undefined, {
               hour12: false,
               hour: "2-digit",
               minute: "2-digit",
@@ -42,7 +42,7 @@ const Task: React.FC<{
         )}
       </div>
       <span
-        style={{ cursor: "pointer", fontSize: "1.5rem" }}
+        style={{ cursor: "pointer", fontSize: "1.8rem" }}
         onClick={(e) => ctx.removeHandler(e, { cardI, itemI })}
       >
         &times;

@@ -32,10 +32,10 @@ const Todos: React.FC<{
   return (
     <div>
       <header>
-        <div className={styles.top}>
+        {/* <div className={styles.top}>
           <img src="/schedule.png" alt="logo" />
         </div>
-        <h1>Todo App</h1>
+        <h1>Todo App</h1> */}
       </header>
       <section className={styles.section}>
         <form onSubmit={ctx.submitHandler} className={styles.form}>
